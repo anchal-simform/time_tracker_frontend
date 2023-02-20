@@ -22,6 +22,19 @@ const userMenuItems = [
   }
 ];
 
+const Styles = {
+  layout: {
+    marginLeft: 200
+  },
+  content: {
+    margin: '24px 16px 0',
+    overflow: 'initial'
+  },
+  button: {
+    marginRight: 10
+  }
+};
+
 //TODO - Convert layout component in single Component
 
 const UserLayout = () => {
@@ -52,12 +65,7 @@ const UserLayout = () => {
           items={userMenuItems}
         />
       </NavSidebar>
-      <Layout
-        className="site-layout"
-        style={{
-          marginLeft: 200
-        }}
-      >
+      <Layout className="site-layout" style={Styles.layout}>
         <Header
           style={{
             padding: 0,
@@ -69,9 +77,7 @@ const UserLayout = () => {
             <Col span={2}>
               {' '}
               <Button
-                style={{
-                  marginRight: 10
-                }}
+                style={Styles.button}
                 type="primary"
                 onClick={handleLogoutClick}
               >
@@ -80,12 +86,7 @@ const UserLayout = () => {
             </Col>
           </Row>
         </Header>
-        <Content
-          style={{
-            margin: '24px 16px 0',
-            overflow: 'initial'
-          }}
-        >
+        <Content style={Styles.content}>
           <div
             style={{
               padding: 24,

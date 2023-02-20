@@ -22,6 +22,14 @@ dayjs.extend(customParseFormat);
 const { Column } = Table;
 const { RangePicker } = DatePicker;
 
+const Styles = {
+  textStyle: {
+    fontSize: 32,
+    marginTop: '12px',
+    display: 'block'
+  }
+};
+
 const ViewByTime = () => {
   const [dateRange, setDateRange] = useState({
     fromDate: new Date(),
@@ -102,11 +110,7 @@ const ViewByTime = () => {
             width: '100%'
           }}
         >
-          <Typography.Text
-            style={{
-              fontSize: 32
-            }}
-          >
+          <Typography.Text style={Styles.textStyle}>
             View Stats Table Data
           </Typography.Text>
 

@@ -28,6 +28,23 @@ import {
 import { SERVER_DATE_FORMAT } from '../../constants';
 import moment from 'moment';
 
+const Styles = {
+  formStyle: {
+    maxWidth: 500,
+    textAlign: 'center',
+    margin: 'auto'
+  },
+  datePicker: { width: '100%' },
+  buttonGroupItem: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '100%'
+  },
+  button: {
+    width: '200px'
+  }
+};
+
 const EditEntry = () => {
   const {
     token: { colorBgContainer }
@@ -166,11 +183,7 @@ const EditEntry = () => {
             {...formItemLayout}
             layout={formLayout}
             form={form}
-            style={{
-              maxWidth: 500,
-              textAlign: 'center',
-              margin: 'auto'
-            }}
+            style={Styles.formStyle}
             initialValues={{
               project: '',
               task: '',
@@ -211,7 +224,7 @@ const EditEntry = () => {
               <Form.Item label="Enter Date" name="date">
                 <DatePicker
                   format="YYYY-MM-DD"
-                  style={{ width: '100%' }}
+                  style={Styles.datePicker}
                   rules={[
                     {
                       required: true,
@@ -251,30 +264,11 @@ const EditEntry = () => {
                   ''
                 )}
               </Form.Item>
-              <Form.Item
-                {...buttonItemLayout}
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  width: '100%'
-                }}
-              >
-                <Button
-                  style={{
-                    width: '200px'
-                  }}
-                  type="dashed"
-                  htmlType="reset"
-                >
+              <Form.Item {...buttonItemLayout} style={Styles.buttonGroupItem}>
+                <Button style={Styles.button} type="dashed" htmlType="reset">
                   Cancel
                 </Button>
-                <Button
-                  style={{
-                    width: '200px'
-                  }}
-                  type="primary"
-                  htmlType="submit"
-                >
+                <Button style={Styles.button} type="primary" htmlType="submit">
                   Submit
                 </Button>
               </Form.Item>
