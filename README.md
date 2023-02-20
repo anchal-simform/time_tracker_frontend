@@ -1,12 +1,75 @@
-# Time Tracker Appication
+# Time Tracker Application
+
+This is frontend of time tracker application
+
+https://drive.google.com/file/d/1pu7KD_utpLHTp9tXAr8_eSy1g6oYhthx/view
 
 # Steps to Run
 
-1.  Clone the Repo in your system
-2.  Change into the project directory
+1.  Clone the Repo from url https://github.com/anchal-simform/time_tracker_frontend
+
+```bash
+
+git clone https://github.com/anchal-simform/time_tracker_frontend
+
+```
+
+2.  Change into the project directory and follow below commands
+
+Prerequisites: Setup and start the backend server first https://github.com/anchal-simform/time_tracker_server
+
 3.  Run npm install command
-4.  Run project using npm run start
-5.  The project will run on localhost:4090, Go to http://localhost:4090 on your browser
+
+```bash
+npm run install
+
+```
+
+Before running the npm start make sure you create the .env file in project root directory and paste content from .env.example file and update
+the Base url of backend server
+
+```javascript
+
+Login Creds :-
+
+Admin creds :-
+
+email: admin@yopmail.com
+password: admin
+
+User creds:
+
+email: mark@yopmail.com
+password: mark
+
+email: johndoe@yopmail.com
+password: johndoe
+
+email: maryjane@yopmail.com
+password: maryjane
+
+email: peter@yopmail.com
+password: peter
+
+
+```
+
+sample env
+
+```env
+REACT_APP_BASE_URL="http://localhost:4090"
+
+```
+
+4. Run project using npm run start
+
+```bash
+
+npm run start
+
+```
+
+5.  The project will run on localhost:3000, Go to http://localhost:3000 on your browser
 
 ## Available Scripts
 
