@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:4090';
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
 export const COOKIE_KEYS = {
   token: 'token',
   email: 'email',

@@ -76,6 +76,7 @@ const App = () => {
               />
             </Route>
             <Route path="/" element={<Login />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </Suspense>
