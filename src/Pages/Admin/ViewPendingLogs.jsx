@@ -1,4 +1,5 @@
-import { Button, Card, Table } from 'antd';
+import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons';
+import { Card, Table } from 'antd';
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import { useMutation, useQuery } from 'react-query';
@@ -65,25 +66,24 @@ const ViewPendingLogs = () => {
             dataIndex="date"
             render={(text, record) => formatDate(record.date)}
           />
-          <Column title="Comment" dataIndex="comment" />
           <Column title="Status" dataIndex="status" />
           <Column
             title="Action"
             dataIndex="Action"
             render={(text, record) => (
               <span style={{ zIndex: '-1' }}>
-                <Button
+                <CheckCircleFilled
+                  title="Accept"
                   onClick={() => onActionClick(record.id, 'ACCEPTED')}
-                  type="primary"
-                >
-                  Accept
-                </Button>{' '}
-                <Button
-                  type="dashed"
+                />
+
+                <CloseCircleFilled
+                  title="Accept"
+                  style={{
+                    marginLeft: 10
+                  }}
                   onClick={() => onActionClick(record.id, 'REJECTED')}
-                >
-                  Reject
-                </Button>
+                />
               </span>
             )}
           />

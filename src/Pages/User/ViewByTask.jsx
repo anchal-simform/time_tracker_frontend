@@ -1,9 +1,10 @@
-import { Card, Select, Table, Typography } from 'antd';
+import { Card, Select, Space, Table, Typography } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { getAllTasks, getTimeLogsByTaskId } from '../../api/api';
 import { formatDate, formatOptions, minutesToHour } from '../../utils/helper';
+import { EditFilled } from '@ant-design/icons';
 
 const { Column } = Table;
 
@@ -43,10 +44,21 @@ const ViewByTask = () => {
           onChange={handleTaskChange}
           options={taskOptions}
         />
-
-        <Typography.Text>
-          Total Duration : {minutesToHour(timeLogs?.data?.totalDuration)}
-        </Typography.Text>
+        <Space
+          direction="vertical"
+          style={{
+            width: '100%',
+            marginTop: 5
+          }}
+        >
+          <Typography.Text
+            style={{
+              marginLeft: 10
+            }}
+          >
+            Total Duration : {minutesToHour(timeLogs?.data?.totalDuration)}
+          </Typography.Text>
+        </Space>
         <Table
           style={{ margin: 10 }}
           loading={isLoading}
@@ -78,7 +90,6 @@ const ViewByTask = () => {
             dataIndex="date"
             render={(text, record) => formatDate(record.date)}
           />
-          <Column title="Comment" dataIndex="comment" />
           <Column title="Status" dataIndex="status" />
           <Column
             title="Action"
@@ -90,7 +101,7 @@ const ViewByTask = () => {
                 ) : (
                   <>
                     <Link to={`/user/update-entry/${record.id}`} type="primary">
-                      Edit
+                      <EditFilled title="Edit" />
                     </Link>
                   </>
                 )}

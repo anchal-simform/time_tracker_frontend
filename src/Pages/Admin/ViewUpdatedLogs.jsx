@@ -1,4 +1,5 @@
-import { Button, Card, Table } from 'antd';
+import { EditFilled } from '@ant-design/icons';
+import { Card, Table } from 'antd';
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import { useMutation, useQuery } from 'react-query';
@@ -64,19 +65,16 @@ const ViewUpdatedLogs = () => {
             dataIndex="date"
             render={(text, record) => formatDate(record.date)}
           />
-          <Column title="Comment" dataIndex="comment" />
           <Column title="Status" dataIndex="status" />
           <Column
             title="Action"
             dataIndex="Action"
             render={(text, record) => (
               <span style={{ zIndex: '-1' }}>
-                <Button
+                <EditFilled
+                  title="Move to Pending"
                   onClick={() => onActionClick(record.id, 'PENDING')}
-                  type="primary"
-                >
-                  Move to Pending
-                </Button>{' '}
+                />
               </span>
             )}
           />

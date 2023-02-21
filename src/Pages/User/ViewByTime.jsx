@@ -1,3 +1,4 @@
+import { EditFilled } from '@ant-design/icons';
 import {
   Button,
   Card,
@@ -15,6 +16,7 @@ import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { getTimeLogsByRange } from '../../api/api';
 import { queryClient } from '../../App';
+
 import { DATE_FORMAT, SERVER_DATE_FORMAT, VIEW_OPTIONS } from '../../constants';
 import { formatDate, getWeekDates, minutesToHour } from '../../utils/helper';
 
@@ -96,13 +98,22 @@ const ViewByTime = () => {
 
           <Select
             style={{
-              width: 300
+              width: 300,
+              marginLeft: 10
             }}
             onChange={handleViewType}
             defaultValue={'monthly'}
             options={VIEW_OPTIONS}
           />
-          <Button onClick={onSubmit}>View Entries</Button>
+          <Button
+            style={{
+              marginLeft: 10
+            }}
+            type="primary"
+            onClick={onSubmit}
+          >
+            View Time logs
+          </Button>
         </Form>
         <Space
           direction="vertical"
@@ -111,7 +122,7 @@ const ViewByTime = () => {
           }}
         >
           <Typography.Text style={Styles.textStyle}>
-            View Stats Table Data
+            Time Range Statistics
           </Typography.Text>
 
           <Table style={{ margin: 10 }} dataSource={statsTableData}>
@@ -145,7 +156,7 @@ const ViewByTime = () => {
               fontSize: 32
             }}
           >
-            View TimeLogs
+            TimeLogs by Time Range
           </Typography.Text>
           <Table
             style={{ margin: 10 }}
@@ -177,7 +188,6 @@ const ViewByTime = () => {
               dataIndex="date"
               render={(text, record) => formatDate(record.date)}
             />
-            <Column title="Comment" dataIndex="comment" />
             <Column title="Status" dataIndex="status" />
             <Column
               title="Action"
@@ -192,7 +202,7 @@ const ViewByTime = () => {
                         to={`/user/update-entry/${record.id}`}
                         type="primary"
                       >
-                        Edit
+                        <EditFilled title="Edit" />
                       </Link>
                     </>
                   )}

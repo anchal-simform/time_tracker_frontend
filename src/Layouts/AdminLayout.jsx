@@ -74,7 +74,7 @@ const AdminLayout = () => {
           }}
         >
           <Row justify="end">
-            <Col span={6}>Hi Admin {email ? `(${email})` : ''} </Col>
+            <Col span={5}>Hi Admin {email ? `(${email})` : ''} </Col>
             <Col span={2}>
               <Button
                 style={Styles.button}

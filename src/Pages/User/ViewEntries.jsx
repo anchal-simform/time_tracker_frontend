@@ -12,7 +12,7 @@ const items = [
   },
   {
     key: '2',
-    label: `View Project logs`,
+    label: `View Project Logs`,
     children: <ViewByProject />
   },
   {
@@ -22,7 +22,7 @@ const items = [
   },
   {
     key: '4',
-    label: `View Time logs`,
+    label: `View Time Range Logs`,
     children: <ViewByTime />
   }
 ];

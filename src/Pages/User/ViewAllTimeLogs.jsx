@@ -1,3 +1,4 @@
+import { EditFilled } from '@ant-design/icons';
 import { Card, Table, Typography } from 'antd';
 import React from 'react';
 import { useQuery } from 'react-query';
@@ -16,7 +17,7 @@ const ViewAllTimeLogs = () => {
 
   return (
     <div className="container">
-      <Card size="default" title="View Pending Time logs">
+      <Card size="default" title="View All Time logs">
         <Typography.Text>
           Total Duration : {minutesToHour(timeLogs?.data?.totalDuration)}
         </Typography.Text>
@@ -51,7 +52,6 @@ const ViewAllTimeLogs = () => {
             dataIndex="date"
             render={(text, record) => formatDate(record.date)}
           />
-          <Column title="Comment" dataIndex="comment" />
           <Column title="Status" dataIndex="status" />
           <Column
             title="Action"
@@ -63,7 +63,7 @@ const ViewAllTimeLogs = () => {
                 ) : (
                   <>
                     <Link to={`/user/update-entry/${record.id}`} type="primary">
-                      Edit
+                      <EditFilled title="Edit" />
                     </Link>
                   </>
                 )}

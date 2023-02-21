@@ -12,3 +12,15 @@
 .center__Form {
   margin: auto;
 }
+
+/* .rdp-picker.rdp-column-container {
+  display: none;
+} */
+
+/* .rdp-column-container {
+  display: none;
+} */
+
+.rdp-column-container:nth-child(3) .rdp-masked-div{
+  display: none;
+}
