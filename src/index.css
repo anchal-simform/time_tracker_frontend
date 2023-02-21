@@ -22,3 +22,30 @@ code {
 .App {
   height: 100%;
 }
+
+.ant-layout-header.page-header {
+  justify-content: flex-end;
+  display: flex;
+  padding: 0 20px;
+}
+.user-layout .page-body-card { 
+  border-radius: 0;
+  border: 0px;
+}
+.timepicker-block .rdp-picker {
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+}
+.timepicker-block .rdp-picker .rdp-column-container:first-child {
+  border-right: 1px solid #d9d9d9;
+}
+.timepicker-block .rdp-picker .rdp-column-container:last-child {
+  display: none;
+}
+.timepicker-block .rdp-reticule   {
+  border-color: #d9d9d9;
+}
+.custom-tabs .ant-tabs-nav {
+  padding: 0 24px;
+  margin-bottom: 0;
+}

@@ -25,9 +25,6 @@ import { formatInMinutes, formatOptions } from '../../utils/helper';
 
 const Styles = {
   formStyle: {
-    maxWidth: 500,
-    textAlign: 'center',
-    margin: 'auto'
   },
   datePicker: { width: '100%' },
   buttonGroupItem: {
@@ -36,7 +33,7 @@ const Styles = {
     width: '100%'
   },
   button: {
-    width: '200px'
+    width: '150px'
   }
 };
 
@@ -101,13 +98,7 @@ const CreateEntry = () => {
   }, [data, isLoading]);
 
   return (
-    <div
-      style={{
-        padding: 24,
-        background: colorBgContainer
-      }}
-    >
-      <Card title="User Create Time Log entry">
+    <Card title="User Create Time Log entry" className='page-body-card'>
         <div className="center__form">
           <Form
             {...formItemLayout}
@@ -184,15 +175,16 @@ const CreateEntry = () => {
                     message: 'Please Enter duration'
                   }
                 ]}
+                className="timepicker-block"
               >
-                <DurationPicker
+                <DurationPicker 
                   initialDuration={{ hours: 0, minutes: 0, seconds: 0 }}
                   maxHours={70}
                 />
               </Form.Item>
               <Form.Item {...buttonItemLayout} style={Styles.buttonGroupItem}>
                 <Space>
-                  <Button style={Styles.button} type="dashed" htmlType="reset">
+                  <Button style={Styles.button}  htmlType="reset">
                     Cancel
                   </Button>
                   <Button
@@ -208,7 +200,6 @@ const CreateEntry = () => {
           </Form>
         </div>
       </Card>
-    </div>
   );
 };
 export default CreateEntry;

@@ -32,9 +32,8 @@ const ViewUpdatedLogs = () => {
     }
   };
 
-  return (
-    <div className="container">
-      <Card size="default" title="View Updated Time logs">
+  return ( 
+      <Card className='page-body-card' size="default" title="View Updated Time logs">
         <Table
           loading={isLoading}
           rowKey={(record) => record.id}
@@ -79,8 +78,7 @@ const ViewUpdatedLogs = () => {
             )}
           />
         </Table>
-      </Card>
-    </div>
+      </Card> 
   );
 };
 

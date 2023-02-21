@@ -1,15 +1,15 @@
-import { Card, Select, Space, Table, Typography } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
-import { getAllProjects, getTimeLogsByProjectId } from '../../api/api';
-import { formatDate, formatOptions, minutesToHour } from '../../utils/helper';
-import { EditFilled } from '@ant-design/icons';
+import { Card, Select, Space, Table, Tooltip, Typography } from "antd";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
+import { getAllProjects, getTimeLogsByProjectId } from "../../api/api";
+import { formatDate, formatOptions, minutesToHour } from "../../utils/helper";
+import { EditFilled } from "@ant-design/icons";
 
 const { Column } = Table;
 
 const ViewByProject = () => {
-  const { data, isLoading } = useQuery('projects', getAllProjects);
+  const { data, isLoading } = useQuery("projects", getAllProjects);
   const [projectOptions, setProjectOptions] = useState([]);
   const [projectId, setProjectId] = useState(null);
 
@@ -18,7 +18,7 @@ const ViewByProject = () => {
     () => getTimeLogsByProjectId(projectId),
     {
       // The query will not execute until the projectId exists
-      enabled: !!projectId
+      enabled: !!projectId,
     }
   );
 
@@ -36,32 +36,34 @@ const ViewByProject = () => {
 
   return (
     <div className="container">
-      <Card size="default" title="View Time logs by project">
-        <Select
-          style={{
-            width: 500
-          }}
-          onChange={handleProjectChange}
-          options={projectOptions}
-        />
-
+      <Card
+        className="page-body-card"
+        size="default"
+        title="View Time logs by project"
+      >
         <Space
-          direction="vertical"
           style={{
-            width: '100%',
-            marginTop:5
+            width: "100%",
+            marginBottom: 10,
+            justifyContent: "space-between",
           }}
         >
           <Typography.Text
             style={{
-              marginLeft: 10
+              marginRight: "auto",
             }}
           >
             Total Duration : {minutesToHour(timeLogs?.data?.totalDuration)}
           </Typography.Text>
+          <Select
+            style={{
+              width: 200,
+            }}
+            onChange={handleProjectChange}
+            options={projectOptions}
+          />
         </Space>
         <Table
-          style={{ margin: 10 }}
           loading={isLoading}
           rowKey={(record) => record.id}
           dataSource={timeLogs?.data?.data}
@@ -96,15 +98,15 @@ const ViewByProject = () => {
             title="Action"
             dataIndex="Action"
             render={(_, record) => (
-              <span style={{ zIndex: '-1' }}>
-                {record.status === 'ACCEPTED' ? (
-                  ''
+              <span style={{ zIndex: "-1" }}>
+                {record.status === "ACCEPTED" ? (
+                  ""
                 ) : (
-                  <>
+                  <Tooltip title="Edit"> 
                     <Link to={`/user/update-entry/${record.id}`} type="primary">
                       <EditFilled title="Edit" />
-                    </Link>
-                  </>
+                    </Link> 
+                  </Tooltip>
                 )}
               </span>
             )}

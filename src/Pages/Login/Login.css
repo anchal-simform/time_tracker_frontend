@@ -1,0 +1,27 @@
+.login-page-wrapper {
+    height: 100vh;
+    display: flex;
+    background: rgb(22,119,255);
+    background: linear-gradient(180deg, rgba(22,119,255,0.10) 0%, rgba(233,233,233,0.1) 100%);  
+    flex-direction: column;
+}
+.login-page-wrapper .login-form-content {
+    width: 400px;
+    margin: auto;
+    flex: 0 0 auto;
+}
+.login-page-wrapper .login-form-card  {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 114px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}
+.login-page-wrapper .login-form-card .ant-card-head-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 33px;
+}
+.login-page-wrapper .login-form-card .ant-card-head {
+    border-bottom: 0;
+    padding: 40px 0 0;
+}

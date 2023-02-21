@@ -1,5 +1,6 @@
 import { BarChartOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Col, Layout, Menu, Row, theme } from 'antd';
+import { Button, Col, Divider, Layout, Menu, Row, Space, theme } from 'antd';
+import Typography from 'antd/es/typography/Typography';
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { queryClient } from '../App';
@@ -67,36 +68,35 @@ const AdminLayout = () => {
         />
       </NavSidebar>
       <Layout className="site-layout" style={Styles.layout}>
-        <Header
-          style={{
-            padding: 0,
+      <Header
+          style={{ 
             background: colorBgContainer
           }}
+          className="page-header"
         >
-          <Row justify="end">
-            <Col span={5}>Hi Admin {email ? `(${email})` : ''} </Col>
-            <Col span={2}>
-              <Button
+            <Space  split={<Divider type="vertical" />}>
+                <Typography>Hi Admin <strong>{email ? `(${email})` : ''}</strong></Typography>
+                <Button
                 style={Styles.button}
                 type="primary"
                 onClick={handleLogoutClick}
               >
                 Logout
               </Button>
-            </Col>
-          </Row>
+            </Space> 
         </Header>
         <Content style={Styles.content}>
           <div
+          className='user-layout'
             style={{
-              padding: 24,
-              textAlign: 'center',
+              padding: 0, 
+              height: '100%',
               background: colorBgContainer
             }}
           >
             <Outlet />
           </div>
-        </Content>
+        </Content> 
       </Layout>
     </Layout>
   );

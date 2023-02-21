@@ -15,7 +15,7 @@ const ViewPendingLogs = React.lazy(() =>
 const ViewUpdatedLogs = React.lazy(() =>
   import('./Pages/Admin/ViewUpdatedLogs')
 );
-const Login = React.lazy(() => import('./Pages/Login'));
+const Login = React.lazy(() => import('./Pages/Login/Login'));
 const CreateEntry = React.lazy(() => import('./Pages/User/CreateEntry'));
 const ViewEntries = React.lazy(() => import('./Pages/User/ViewEntries'));
 const EditEntry = React.lazy(() => import('./Pages/User/EditEntry'));

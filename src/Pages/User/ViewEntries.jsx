@@ -26,6 +26,6 @@ const items = [
     children: <ViewByTime />
   }
 ];
-const ViewEntries = () => <Tabs defaultActiveKey="1" items={items} />;
+const ViewEntries = () => <div className='custom-tabs'><Tabs defaultActiveKey="1" items={items} /></div>;
 
 export default ViewEntries;

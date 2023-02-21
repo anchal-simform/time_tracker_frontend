@@ -1,5 +1,5 @@
 import { BarChartOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Col, Layout, Menu, Row, theme } from 'antd';
+import { Button, Col, Divider, Layout, Menu, Row, Space, theme, Typography } from 'antd';
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { queryClient } from '../App';
@@ -27,8 +27,9 @@ const Styles = {
     marginLeft: 200
   },
   content: {
-    margin: '24px 16px 0',
-    overflow: 'initial'
+    padding: '24px 16px',
+    overflow: 'initial',
+    minHeight: 'calc(100vh - 64px)',
   },
   button: {
     marginRight: 10
@@ -67,30 +68,28 @@ const UserLayout = () => {
       </NavSidebar>
       <Layout className="site-layout" style={Styles.layout}>
         <Header
-          style={{
-            padding: 0,
+          style={{ 
             background: colorBgContainer
           }}
+          className="page-header"
         >
-          <Row justify="end">
-            <Col span={4}>Hi User {email ? `(${email})` : ''} </Col>
-            <Col span={2}>
-              {' '}
-              <Button
+            <Space  split={<Divider type="vertical" />}>
+                <Typography>Hi User <strong>{email ? `(${email})` : ''}</strong></Typography>
+                <Button
                 style={Styles.button}
                 type="primary"
                 onClick={handleLogoutClick}
               >
                 Logout
               </Button>
-            </Col>
-          </Row>
+            </Space> 
         </Header>
         <Content style={Styles.content}>
           <div
+          className='user-layout'
             style={{
-              padding: 24,
-              textAlign: 'center',
+              padding: 0, 
+              height: '100%',
               background: colorBgContainer
             }}
           >

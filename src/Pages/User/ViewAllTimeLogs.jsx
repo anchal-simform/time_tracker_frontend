@@ -1,10 +1,10 @@
-import { EditFilled } from '@ant-design/icons';
-import { Card, Table, Typography } from 'antd';
-import React from 'react';
-import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
-import { getUserTimeLogs } from '../../api/api';
-import { formatDate, minutesToHour } from '../../utils/helper';
+import { EditFilled } from "@ant-design/icons";
+import { Card, Table, Tooltip, Typography } from "antd";
+import React from "react";
+import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
+import { getUserTimeLogs } from "../../api/api";
+import { formatDate, minutesToHour } from "../../utils/helper";
 
 const { Column } = Table;
 
@@ -12,17 +12,20 @@ const ViewAllTimeLogs = () => {
   const {
     data: timeLogs,
     isLoading,
-    isFetching
-  } = useQuery('time-logs/by-user', getUserTimeLogs);
+    isFetching,
+  } = useQuery("time-logs/by-user", getUserTimeLogs);
 
   return (
     <div className="container">
-      <Card size="default" title="View All Time logs">
-        <Typography.Text>
+      <Card
+        className="page-body-card"
+        size="default"
+        title="View All Time logs"
+      >
+        <Typography.Text style={{ marginBottom: 10, display: "block" }}>
           Total Duration : {minutesToHour(timeLogs?.data?.totalDuration)}
         </Typography.Text>
         <Table
-          style={{ margin: 10 }}
           loading={isLoading || isFetching}
           rowKey={(record) => record.id}
           dataSource={timeLogs?.data?.data}
@@ -57,15 +60,15 @@ const ViewAllTimeLogs = () => {
             title="Action"
             dataIndex="Action"
             render={(_, record) => (
-              <span style={{ zIndex: '-1' }}>
-                {record.status === 'ACCEPTED' ? (
-                  ''
+              <span style={{ zIndex: "-1" }}>
+                {record.status === "ACCEPTED" ? (
+                  ""
                 ) : (
-                  <>
+                  <Tooltip title="Edit">
                     <Link to={`/user/update-entry/${record.id}`} type="primary">
                       <EditFilled title="Edit" />
                     </Link>
-                  </>
+                  </Tooltip>
                 )}
               </span>
             )}

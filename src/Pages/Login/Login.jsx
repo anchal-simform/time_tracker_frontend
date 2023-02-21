@@ -1,12 +1,13 @@
 import { Button, Card, Form, Input, Layout } from 'antd';
-import { Content } from 'antd/es/layout/layout';
 import React from 'react';
 import toast from 'react-hot-toast';
+import "./Login.css"
+import { Content } from 'antd/es/layout/layout';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../api/api';
-import { queryClient } from '../App';
-import { setInititalCookies } from '../utils/helper';
+import { login } from '../../api/api';
+import { queryClient } from '../../App';
+import { setInititalCookies } from '../../utils/helper';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -40,27 +41,13 @@ const Login = () => {
   };
 
   return (
-    <Layout
-      style={{
-        height: '100%',
-        backgroundImage: 'url(https://picsum.photos/id/8/1200/900)',
-        backgroundSize: 'cover'
-      }}
-    >
-      <Content
-        style={{
-          margin: 'auto'
-        }}
+    <Layout className='login-page-wrapper'>
+      <Content  className='login-form-content'
       >
-        <Card title="Login" bordered={false} style={{ width: 500, top: '20%' }}>
+        <Card title="Login" className='login-form-card'>
           <Form
             name="login_form"
-            labelCol={{
-              span: 8
-            }}
-            wrapperCol={{
-              span: 16
-            }}
+             layout='vertical'
             style={{
               maxWidth: 600
             }}
@@ -97,19 +84,12 @@ const Login = () => {
               <Input.Password />
             </Form.Item>
 
-            <Form.Item
-              wrapperCol={{
-                offset: 8,
-                span: 16
-              }}
-            >
-              <Button type="dashed" htmlType="reset">
-                Cancel
-              </Button>
+            <Form.Item> 
               <Button
                 style={{ marginLeft: '5px' }}
                 type="primary"
                 htmlType="submit"
+                block
               >
                 Submit
               </Button>

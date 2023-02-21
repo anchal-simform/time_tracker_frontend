@@ -5,6 +5,7 @@ import {
   Form,
   Input,
   Select,
+  Space,
   Spin,
   theme
 } from 'antd';
@@ -30,9 +31,6 @@ import moment from 'moment';
 
 const Styles = {
   formStyle: {
-    maxWidth: 500,
-    textAlign: 'center',
-    margin: 'auto'
   },
   datePicker: { width: '100%' },
   buttonGroupItem: {
@@ -41,7 +39,7 @@ const Styles = {
     width: '100%'
   },
   button: {
-    width: '200px'
+    width: '150px'
   }
 };
 
@@ -170,14 +168,8 @@ const EditEntry = () => {
     }
   };
 
-  return (
-    <div
-      style={{
-        padding: 24,
-        background: colorBgContainer
-      }}
-    >
-      <Card title="User Edit Time Log entry">
+  return ( 
+      <Card className='page-body-card'  title="User Edit Time Log entry">
         <div className="center__form">
           <Form
             {...formItemLayout}
@@ -254,6 +246,7 @@ const EditEntry = () => {
                     message: 'Please Enter duration'
                   }
                 ]}
+                className="timepicker-block"
               >
                 {initialDuration?.hours ? (
                   <DurationPicker
@@ -265,18 +258,19 @@ const EditEntry = () => {
                 )}
               </Form.Item>
               <Form.Item {...buttonItemLayout} style={Styles.buttonGroupItem}>
-                <Button style={Styles.button} type="dashed" htmlType="reset">
+              <Space>
+                <Button style={Styles.button}   onClick={() => navigate('/user/entries')} htmlType="reset">
                   Cancel
                 </Button>
                 <Button style={Styles.button} type="primary" htmlType="submit">
                   Submit
                 </Button>
+                </Space>
               </Form.Item>
             </Spin>
           </Form>
         </div>
-      </Card>
-    </div>
+      </Card> 
   );
 };
 export default EditEntry;
