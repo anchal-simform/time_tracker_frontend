@@ -73,7 +73,7 @@ const UserLayout = () => {
           }}
         >
           <Row justify="end">
-            <Col span={5}>Hi User {email ? `(${email})` : ''} </Col>
+            <Col span={4}>Hi User {email ? `(${email})` : ''} </Col>
             <Col span={2}>
               {' '}
               <Button
